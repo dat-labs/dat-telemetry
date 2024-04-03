@@ -27,13 +27,14 @@ class DBTelemetryHandler(BaseTelemetryHandler):
 
     def process_msg(self, telemetry_msg: TelemetryMsg) -> None:
         with dat_client.ApiClient(self.configuration) as api_client:
-            print(f'telemetry_msg: {telemetry_msg}')
             conn_run_log_api_instance = dat_client.ConnectionRunLogsApi(
                 api_client)
             try:
                 api_response = conn_run_log_api_instance.add_connection_run_log_connection_run_logs_post(
                     connection_id=telemetry_msg.connection_id,
-                    dat_log_message=telemetry_msg.dat_message.log,
+                    dat_log_message=DatLogMessage.from_json(
+                        telemetry_msg.dat_message.log.model_dump_json()
+                    ),
                 )
                 print(
                     "The response of ConnectionRunLogsApi->add_connection_run_log_connection_run_logs_post:\n")
