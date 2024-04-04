@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dat-telemetry"
+version = "0.1.0"
+description = "Sink handlers to manage telemetry messages"
+authors = ["Team <team@datlabs.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^2.6.4"
+celery = "^5.3.6"
+dat-core = {git = "ssh://git@github.com/riju-dc/dat-core", rev = "feature/base-classes"}
+dat-client = {git = "ssh://git@github.com/riju-dc/dat-api-sdk", rev = "feature/sdk-conn-run-log-POST"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
