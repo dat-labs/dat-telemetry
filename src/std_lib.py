@@ -26,6 +26,7 @@ class DBTelemetryHandler(BaseTelemetryHandler):
         )
 
     def process_msg(self, telemetry_msg: TelemetryMsg) -> None:
+        telemetry_msg.dat_message.log.message = telemetry_msg.dat_message.log.model_dump_json()
         with dat_client.ApiClient(self.configuration) as api_client:
             conn_run_log_api_instance = dat_client.ConnectionRunLogsApi(
                 api_client)
