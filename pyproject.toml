@@ -10,8 +10,8 @@ readme = "README.md"
 python = "^3.10"
 pydantic = "^2.6.4"
 celery = "^5.3.6"
-dat-core = {git = "ssh://git@github.com/riju-dc/dat-core", rev = "feature/base-classes"}
-dat-client = {git = "ssh://git@github.com/riju-dc/dat-api-sdk", rev = "feature/sdk-conn-run-log-POST"}
+dat-core = {git = "ssh://git@github.com/dat-labs/dat-core", rev = "main", develop = true}
+dat-client = {git = "ssh://git@github.com/dat-labs/dat-core", rev = "main", develop = true}
 
 [build-system]
 requires = ["poetry-core"]
