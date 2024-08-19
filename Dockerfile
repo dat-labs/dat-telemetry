@@ -1,8 +1,7 @@
 FROM python:3.10
 WORKDIR /repo
 
-COPY pyproject.toml .
-COPY poetry.lock .
+COPY . .
 RUN pip install poetry
 
 # RUN poetry add 'uvicorn[standard]'
